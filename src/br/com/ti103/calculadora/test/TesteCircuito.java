@@ -9,14 +9,25 @@ import br.com.ti103.calculadora.model.Resistor;
 public class TesteCircuito {
 
 	public static void main(String[] args) {
-		List<Resistor> ress = new ArrayList<Resistor>();
-		ress.add(new Resistor("ma", "az", "vm"));
-		ress.add(new Resistor("ma", "az", "vm"));
-		ress.add(new Resistor("ma", "az", "vm"));
-		
 		Circuito circuito = new Circuito(12);
-		circuito.serie(ress);
+		
+		List<Resistor> resistores = new ArrayList<Resistor>() ;
+		resistores.add(new Resistor("vm", "az", "ma"));
+		resistores.add(new Resistor("am", "pt", "ma", "dr"));
+		
+		circuito.setAssociacao(resistores, "SERIe");
+		resistores.clear();
+		
+		resistores.add(new Resistor("vm", "az", "ma"));
+		resistores.add(new Resistor("az", "pt", "ma", "dr"));
+		resistores.add(new Resistor("vd", "az", "ma"));
+		resistores.add(new Resistor("az", "pt", "ma", "dr"));
+		
+		circuito.setAssociacao(resistores, "paralelo");
+		resistores.clear();
+		
 		System.out.println(circuito);
+		
 
 	}
 

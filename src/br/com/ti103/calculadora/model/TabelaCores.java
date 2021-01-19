@@ -1,6 +1,5 @@
 package br.com.ti103.calculadora.model;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
